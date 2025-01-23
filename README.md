@@ -1,6 +1,6 @@
 # Zen Browser
 
-This is a flake for the Zen browser.
+This is a flake for the Zen browser. Now with auto updating! We check for a new version hourly, so should always have the latest availabe.
 
 Just add it to your NixOS `flake.nix` or home-manager:
 
@@ -21,8 +21,18 @@ Build and run!
 zen
 ```
 
+
+
 ## Packages
 This flake exposes a package for x86_64 and aarch64. The package is simply a wrapper around the AppImage that's published by zen themselves
+
+To build it yourself
+```bash
+nix build .#default
+
+# Or
+nix build .#
+```
 
 ## Run without installing
 Run this command to build the flake and run instantly.
