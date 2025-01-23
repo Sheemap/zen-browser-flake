@@ -31,7 +31,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in
       {
-        packages.default = import ./zen-browser.nix { inherit pkgs system; };
+        packages.default = pkgs.callPackage ./zen-browser.nix { };
       }
     ));
 
