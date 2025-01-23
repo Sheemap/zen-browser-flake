@@ -1,0 +1,35 @@
+name: Update zen-browser
+
+on:
+  schedule:
+    #  Hourly
+    - cron: "14 * * * *"
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: cachix/install-nix-action@v20
+
+      - run: nix run github:Mic92/nix-update -- default --url https://github.com/zen-browser/desktop -F
+      
+      - uses: stefanzweifel/git-auto-commit-action@v5.0.1
+        with:
+          commit_message: Bump version
+          branch: master
+          commit_options: '--no-verify --signoff'
+          file_pattern: zen-browser.nix
+          commit_user_name: Flake Bot # defaults to "GitHub Actions"
+          #commit_user_email: my-github-actions-bot@example.org # defaults to "actions@github.com"
+          commit_author: Flake Bot <actions@github.com> # defaults to author of the commit that triggered the run
+          skip_dirty_check: false
+          skip_fetch: true
