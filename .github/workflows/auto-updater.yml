@@ -1,11 +1,10 @@
 name: Update zen-browser
 
 on:
-  schedule:
-    #  Hourly
-    - cron: "14 * * * *"
-
   workflow_dispatch:
+  # schedule:
+  #   #  Hourly
+  #   - cron: "14 * * * *"
 
 jobs:
   build:
