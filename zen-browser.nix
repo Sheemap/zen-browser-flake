@@ -4,11 +4,11 @@
 }:
 let
   pname = "zen";
-  version = "1.12b";
+  version = "1.12.1b";
 
   src = fetchurl {
     url = "https://github.com/zen-browser/desktop/releases/download/${version}/${pname}-x86_64.AppImage";
-    hash = "sha256-Ys+BDqzjIXkyrLoVyrUVWiwr/WDBKvj568qPfbOQMnA=";
+    hash = "sha256-B49HiP1QZMMnTdz7xT+BOjmH0FrZXJZbvBarjYIbc4I=";
   };
 in
 appimageTools.wrapType2 {
